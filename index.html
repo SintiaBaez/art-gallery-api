@@ -3,19 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ARTIC API Gallery</title>
+    <title>Lumos Art Gallery</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <header>
-      <h1>ARTIC API Gallery</h1>
+      <h1>Lumos Art Gallery</h1>
+      <p>Bringing art to light, one masterpiece at a time</p>
+      <button id="lumos">LUMOS</button>
     </header>
 
     <main>
-      <p>Loading artwork from the ARTIC API</p>
-      <button id="load-artwork">Load Artwork</button>
-      <pre id="response"></pre>
+      <nav>
+        <ul></ul>
+      </nav>
+      <button id="alohomora">Alohomora</button>
+      <button id="expecto-patronum">Expecto Patronum</button>
+      <button id="felix-felicis">Felix Felicis</button>
+
+      <select id="artist-filter">
+        <option value="all">All Artists</option>
+      </select>
+      <div id="art-gallery" class="gallery"></div>
     </main>
+
     <script type="module" src="index.js"></script>
   </body>
 </html>

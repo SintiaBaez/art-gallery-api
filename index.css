@@ -4,7 +4,14 @@ body {
   color: white;
   text-align: center;
   padding: 20px;
+  cursor: default;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
+
+#lumos {
+  cursor: url("images/Wand.cur"), pointer !important;
+}
+
 header h1 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -16,7 +23,137 @@ button {
   color: white;
   cursor: pointer;
   border-radius: 5px;
+  position: relative;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 button:hover {
   background-color: #444;
+  transform: scale(1.05);
+}
+button.glowing {
+  background-color: #ffeb3b;
+  color: black;
+  box-shadow: 0 0 15px 5px rgba(255, 235, 59, 0.5);
+}
+body.lit {
+  background-color: white;
+  color: black;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.art-container {
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.5s ease;
+}
+
+body.lit .gallery .art-container {
+  background-color: black;
+  color: white;
+  border-color: #666;
+}
+
+.gallery .art-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  max-width: 250px;
+  max-height: 350px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.gallery h3 {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.5s ease;
+}
+
+body.lit .gallery h3 {
+  color: #222;
+}
+
+.gallery p {
+  font-size: 0.9rem;
+  color: #bbb;
+  font-style: italic;
+  transition: color 0.5s ease;
+}
+
+body.lit .gallery p {
+  color: #444;
+}
+
+/*charms effect */
+.art-card {
+  position: relative;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.5s ease;
+}
+
+.art-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://wallpaperaccess.com/full/4137444.jpg") no-repeat
+    center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.art-image {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.art-card.show .art-image {
+  opacity: 1;
+}
+
+.art-card.show .art-cover {
+  opacity: 0;
+}
+
+/*Patronum*/
+.glowing-border {
+  border: 5px solid rgba(180, 210, 245, 0.8);
+  box-shadow: 0 0 15px rgba(3, 192, 234, 0.8);
 }
