@@ -8,7 +8,10 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-#lumos {
+#lumos,
+#alohomora,
+#expecto-patronum,
+#felix-felicis {
   cursor: url("images/Wand.cur"), pointer !important;
 }
 
@@ -30,6 +33,7 @@ button {
 button:hover {
   background-color: #444;
   transform: scale(1.05);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 button.glowing {
   background-color: #ffeb3b;
@@ -137,23 +141,26 @@ body.lit .gallery p {
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
-
+.art-card img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 .art-image {
-  display: block;
-  opacity: 0;
+  opacity: 0; /* Initially hide the image */
   transition: opacity 0.5s ease;
 }
 
 .art-card.show .art-image {
-  opacity: 1;
+  opacity: 1; /* Show the image when .show is added */
 }
 
 .art-card.show .art-cover {
-  opacity: 0;
+  opacity: 0; /* Hide the cover image when .show is added */
 }
-
-/*Patronum*/
+/*Patronum Effect*/
 .glowing-border {
   border: 5px solid rgba(180, 210, 245, 0.8);
   box-shadow: 0 0 15px rgba(3, 192, 234, 0.8);
+}
+.art-image .artist-filterr {
+  opacity: none;
 }
