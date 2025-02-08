@@ -1,3 +1,5 @@
+let alohomoraActivated = false; // Status to track if Alohomora is active
+
 async function fetchArtworks() {
   const url =
     "https://api.artic.edu/api/v1/artworks?fields=id,title,image_id,artist_title";
@@ -108,16 +110,23 @@ function displayArtworks(artworks) {
     card.appendChild(img);
     card.appendChild(title);
     gallery.appendChild(card);
+
+    // If Alohomora is active, display images directly
+    if (alohomoraActivated) {
+      card.classList.add("show");
+    }
   });
 }
 
 function filterArtworks(artist, artworks) {
+  let filteredArt;
   if (artist === "all") {
-    displayArtworks(artworks);
+    filteredArt = artworks;
   } else {
-    const filteredArt = artworks.filter((art) => art.artist_title === artist);
-    displayArtworks(filteredArt);
+    filteredArt = artworks.filter((art) => art.artist_title === artist);
   }
+
+  displayArtworks(filteredArt);
 }
 
 fetchArtworks();
@@ -131,13 +140,14 @@ document.getElementById("lumos").addEventListener("click", function () {
 
 //Charms button effect
 document.getElementById("alohomora").addEventListener("click", function () {
+  alohomoraActivated = !alohomoraActivated; // Alternate status
+
   const cards = document.querySelectorAll(".art-card");
   cards.forEach((card) => {
-    card.classList.toggle("show");
+    card.classList.toggle("show", alohomoraActivated);
   });
 
-  this.textContent =
-    this.textContent === "Alohomora" ? "Alohomora" : "Alohomora";
+  this.textContent = alohomoraActivated ? "Colloportus" : "Alohomora";
 });
 
 // Expecto Patronum

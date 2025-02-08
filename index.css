@@ -1,11 +1,15 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, "HarryPotterFont";
   background-color: black;
   color: white;
   text-align: center;
   padding: 20px;
   cursor: default;
   transition: background-color 0.5s ease, color 0.5s ease;
+}
+@font-face {
+  font-family: "HarryPotterFont";
+  src: url("Fonts/HARRYP__.TTF") format("truetype");
 }
 
 #lumos,
@@ -16,8 +20,10 @@ body {
 }
 
 header h1 {
-  font-size: 2rem;
+  font-family: "HarryPotterFont", sans-serif;
+  font-size: 3rem;
   margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 button {
