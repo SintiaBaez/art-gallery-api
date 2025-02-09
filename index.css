@@ -9,14 +9,15 @@ body {
 }
 @font-face {
   font-family: "HarryPotterFont";
-  src: url("Fonts/HARRYP__.TTF") format("truetype");
+  src: url("./Fonts/HARRYP__.TTF") format("truetype");
 }
 
-#lumos,
-#alohomora,
-#expecto-patronum,
-#felix-felicis {
-  cursor: url("images/Wand.cur"), pointer !important;
+/*Buttons cursor*/
+body #lumos,
+body #alohomora,
+body #expecto-patronum,
+body #felix-felicis {
+  cursor: url("images/Wand.cur"), pointer;
 }
 
 header h1 {
@@ -91,7 +92,7 @@ body.lit .gallery .art-container {
 }
 
 .gallery img:hover {
-  transform: scale(1.05);
+  transform: scale(1.2);
 }
 
 .gallery h3 {
@@ -127,27 +128,28 @@ body.lit .gallery p {
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, background-color 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .art-cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  width: 100%;
+  height: 0;
   background: url("https://wallpaperaccess.com/full/4137444.jpg") no-repeat
     center center;
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 1;
-  transition: opacity 0.3s ease;
+  flex-grow: 1;
   z-index: 1;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
 }
 .art-card img {
+  width: 100%;
+  height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .art-image {
@@ -170,3 +172,64 @@ body.lit .gallery p {
 .art-image .artist-filterr {
   opacity: none;
 }
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .art-card {
+    padding: 10px;
+    height: auto;
+    flex-direction: column;
+  }
+  .art-cover {
+    padding-bottom: 56.25%;
+  }
+  .gallery {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(200px, 1fr));
+  }
+
+  .gallery img {
+    width: 100%; 
+    height: auto;
+    max-height: 350px;
+  
+  }
+
+  .gallery h3 {
+    font-size: 1.2rem; 
+  }
+  .art-card h3 {
+    padding-top: 30px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .art-card {
+    padding: 8px;
+    flex-direction: column;
+  }
+
+  .art-cover {
+    padding-bottom: 70%; 
+  }
+
+  .gallery {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(150px, 1fr));
+    header h1 {
+      font-size: 2rem; 
+    }
+  
+    .gallery img {
+      width: 100%; 
+    }
+  
+    .gallery h3 {
+      font-size: 1rem;
+    }
+  
+    .art-card h3 {
+      padding-top: 25px;
+    }
+  }

@@ -139,6 +139,7 @@ document.getElementById("lumos").addEventListener("click", function () {
 });
 
 //Charms button effect
+// Alohomora
 document.getElementById("alohomora").addEventListener("click", function () {
   alohomoraActivated = !alohomoraActivated; // Alternate status
 
